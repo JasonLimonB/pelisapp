@@ -1,0 +1,38 @@
+<div class="row mt-5" *ngIf="peli">
+    <div class="colmd-6">
+        <img [src]="peli.poster_path | poster" [alt]="peli.title" class="img-thumbnail">
+    </div>
+    <div class="col-md-6">
+        <h3>{{ peli.title }}</h3>>
+        <div class="row">
+            <div class="col">
+                <star-rating 
+                        [value]="peli.vote_average" 
+                        totalstars="10" 
+                        checkedcolor="yellow" 
+                        uncheckedcolor="gray" 
+                        size="16px" 
+                        readonly="false"></star-rating>
+            </div>
+            <div class="col text-white">
+                {{ peli.vote_average }}
+            </div>
+        </div>
+        <div class="row mt-3 text-white">
+            <div class="col">
+                {{ peli.overview }}
+            </div>
+        </div>
+        <div class="row">
+            <div class="col mt-3">
+                <button (click)="volver()" class="btn btn-outline-info">Volver</button>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="row mt-5" *ngIf="cast.length > 0">
+    <div class="col">
+        <app-cast-slideshow [cast]="cast"></app-cast-slideshow>
+    </div>
+</div>
